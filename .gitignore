@@ -1,0 +1,85 @@
+# Node.js/Angular related files
+node_modules/
+dist/
+tmp/
+out-tsc/
+.vscode/
+.idea/
+.sass-cache/
+connect.lock
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Angular build files
+/build/
+ngsw-worker.js
+ngsw.json
+manifest.webmanifest
+safety-worker.js
+worker-basic.min.js
+
+# Compiled binary addons
+*.node
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Optional: Ignore environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python related files
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+.eggs/
+*.pyo
+*.pyd
+Pipfile.lock
+
+# IDE-specific settings
+.idea/
+.vscode/
+*.iml
+
+# Pytest cache
+.pytest_cache/
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+
+# Flask instance folder
+instance/
+
+# VS Code Extensions
+.vscode/extensions.json
+
+# Heroku
+/.heroku/
+
+# Environment
+*.env
+
+# Virtualenv
+venv/
+ENV/
+env/
+.venv/
