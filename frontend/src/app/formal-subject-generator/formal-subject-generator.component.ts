@@ -19,7 +19,7 @@ export class FormalSubjectGeneratorComponent {
     this.emailService.generateFormalSubjectLines(this.emailContent)
       .subscribe({
         next: lines => this.subjectLines = lines,
-        error: err => this.errorMessage = 'Failed to generate subject lines. Please try again.'
+        error: err => this.errorMessage = 'Failed to generate formal subject lines. Please try again.'
       });
   }
 }
