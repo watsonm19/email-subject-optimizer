@@ -26,7 +26,28 @@ def generate_formal_subject_lines():
             {"role": "user", "content": email_content}
         ],
         max_tokens=50,
-        n=3,  # Generates 3 different subject lines
+        n=3,  # Generates 3 different formal subject lines
+        stop=None
+    )
+    
+    subject_lines = [choice.message.content.strip() for choice in response.choices]
+    
+    return jsonify(subject_lines)
+
+
+@main.route('/api/generate-casual-subject-lines', methods=['POST'])
+def generate_casual_subject_lines():
+    data = request.json
+    email_content = data.get('emailContent')
+    
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "Generate an effective casual email subject line based on the following email content."},
+            {"role": "user", "content": email_content}
+        ],
+        max_tokens=50,
+        n=3,  # Generates 3 different casual subject lines
         stop=None
     )
     
