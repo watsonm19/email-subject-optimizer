@@ -1,13 +1,16 @@
 <div>
-    <h2>Generate Email Subject Lines</h2>
-    <textarea [(ngModel)]="emailContent" placeholder="Enter email content"></textarea>
-    <button (click)="generateSubjectLines()">Generate</button>
-    
-    <div *ngIf="subjectLines.length">
-      <h3>Suggested Subjects:</h3>
-      <ul>
-        <li *ngFor="let line of subjectLines">{{ line }}</li>
-      </ul>
-    </div>
+  <h2>Generate Email Subject Lines</h2>
+  <textarea [(ngModel)]="emailContent" placeholder="Enter email content"></textarea>
+  <button (click)="generateSubjectLines()">Generate</button>
+
+  <div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="subjectLines.length">
+    <h3>Suggested Subject Lines:</h3>
+    <ul>
+      <li *ngFor="let line of subjectLines">{{ line }}</li>
+    </ul>
+  </div>
 </div>
-  
