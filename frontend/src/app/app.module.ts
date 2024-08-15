@@ -5,15 +5,18 @@ import { provideHttpClient } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { CasualSubjectGeneratorComponent } from './casual-subject-generator/casual-subject-generator.component';
 import { FormalSubjectGeneratorComponent } from './formal-subject-generator/formal-subject-generator.component';
 
 const routes: Routes = [
-    { path: '', component: FormalSubjectGeneratorComponent }
+  { path: 'casual', component: CasualSubjectGeneratorComponent },
+  { path: 'formal', component: FormalSubjectGeneratorComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
+    CasualSubjectGeneratorComponent,
     FormalSubjectGeneratorComponent
   ],
   imports: [
