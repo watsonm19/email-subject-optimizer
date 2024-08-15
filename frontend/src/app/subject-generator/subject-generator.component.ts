@@ -10,11 +10,16 @@ export class SubjectGeneratorComponent {
 
   emailContent: string = '';
   subjectLines: string[] = [];
+  errorMessage: string = '';
 
   constructor(private emailService: EmailService) { }
 
   generateSubjectLines() {
+    this.errorMessage = '';
     this.emailService.generateSubjectLines(this.emailContent)
-      .subscribe(lines => this.subjectLines = lines);
+      .subscribe({
+        next: lines => this.subjectLines = lines,
+        error: err => this.errorMessage = 'Failed to generate subject lines. Please try again.'
+      });
   }
 }
