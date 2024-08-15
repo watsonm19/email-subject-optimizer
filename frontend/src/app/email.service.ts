@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class EmailService {
 
-  private apiUrl = 'http://127.0.0.1/:5000/api/generate-subject-lines';
+  private apiUrl = 'http://127.0.0.1:5000/api/generate-subject-lines';
 
   constructor(private http: HttpClient) { }
 
