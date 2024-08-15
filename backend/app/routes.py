@@ -39,8 +39,8 @@ def generate_formal_subject_lines():
         for choice in response.choices:
             line = choice.message.content.strip()
             # Remove "Subject:" if it's at the start of the string
-            if line.lower().startswith("Subject: "):
-                line = line[len("Subject: "):].strip()
+            if line.lower().startswith("subject: "):
+                line = line[len("subject: "):].strip()
             # Remove wrapping quotation marks if present
             if line.startswith('"') and line.endswith('"'):
                 line = line[1:-1].strip()
@@ -77,8 +77,8 @@ def generate_casual_subject_lines():
         for choice in response.choices:
             line = choice.message.content.strip()
             # Remove "Subject:" if it's at the start of the string
-            if line.lower().startswith("Subject: "):
-                line = line[len("Subject: "):].strip()
+            if line.lower().startswith("subject: "):
+                line = line[len("subject: "):].strip()
             # Remove wrapping quotation marks if present
             if line.startswith('"') and line.endswith('"'):
                 line = line[1:-1].strip()
