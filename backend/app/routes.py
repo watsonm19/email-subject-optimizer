@@ -26,7 +26,7 @@ def generate_subject_lines():
             {"role": "user", "content": email_content}
         ],
         max_tokens=50,
-        n=3,  # Generate 3 subject lines
+        n=3,  # Generates 3 different subject lines
         stop=None
     )
     
