@@ -18,39 +18,73 @@ client = openai.OpenAI(
 def generate_formal_subject_lines():
     data = request.json
     email_content = data.get('emailContent')
+
+    if not email_content:
+        return jsonify({'error': 'Email content is required'}), 400
     
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "Generate an effective formal email subject line based on the following email content."},
-            {"role": "user", "content": email_content}
-        ],
-        max_tokens=50,
-        n=3,  # Generates 3 different formal subject lines
-        stop=None
-    )
+    try:
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "Generate an effective formal email subject line based on the following email content."},
+                {"role": "user", "content": email_content}
+            ],
+            max_tokens=50,
+            n=3,
+            stop=None
+        )
+        
+        # Clean up the subject lines
+        subject_lines = []
+        for choice in response.choices:
+            line = choice.message.content.strip()
+            # Remove "Subject:" if it's at the start of the string
+            if line.lower().startswith("Subject: "):
+                line = line[len("Subject: "):].strip()
+            # Remove wrapping quotation marks if present
+            if line.startswith('"') and line.endswith('"'):
+                line = line[1:-1].strip()
+            subject_lines.append(line)
+        
+        return jsonify(subject_lines)
     
-    subject_lines = [choice.message.content.strip() for choice in response.choices]
-    
-    return jsonify(subject_lines)
+    except openai.error.OpenAIError as e:
+        return jsonify({'error': str(e)}), 500
 
 
 @main.route('/api/generate-casual-subject-lines', methods=['POST'])
 def generate_casual_subject_lines():
     data = request.json
     email_content = data.get('emailContent')
+
+    if not email_content:
+        return jsonify({'error': 'Email content is required'}), 400
     
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "Generate an effective casual email subject line based on the following email content."},
-            {"role": "user", "content": email_content}
-        ],
-        max_tokens=50,
-        n=3,  # Generates 3 different casual subject lines
-        stop=None
-    )
+    try:
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "Generate an effective casual email subject line based on the following email content."},
+                {"role": "user", "content": email_content}
+            ],
+            max_tokens=50,
+            n=3,
+            stop=None
+        )
+        
+        # Clean up the subject lines
+        subject_lines = []
+        for choice in response.choices:
+            line = choice.message.content.strip()
+            # Remove "Subject:" if it's at the start of the string
+            if line.lower().startswith("Subject: "):
+                line = line[len("Subject: "):].strip()
+            # Remove wrapping quotation marks if present
+            if line.startswith('"') and line.endswith('"'):
+                line = line[1:-1].strip()
+            subject_lines.append(line)
+        
+        return jsonify(subject_lines)
     
-    subject_lines = [choice.message.content.strip() for choice in response.choices]
-    
-    return jsonify(subject_lines)
+    except openai.error.OpenAIError as e:
+        return jsonify({'error': str(e)}), 500
