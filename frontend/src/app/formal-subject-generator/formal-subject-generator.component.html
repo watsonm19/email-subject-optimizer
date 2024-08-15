@@ -1,7 +1,15 @@
 <div>
   <h2>Generate Formal Email Subject Lines</h2>
-  <textarea [(ngModel)]="emailContent" placeholder="Enter email content"></textarea>
-  <button (click)="generateFormalSubjectLines()">Generate</button>
+  <p-floatLabel>
+    <textarea 
+      [(ngModel)]="emailContent"
+      id="float-input" 
+      rows="30" cols="75" 
+      pInputTextarea>
+    </textarea>
+    <label for="float-input">Enter email content</label>
+  </p-floatLabel>
+  <p-button (click)="generateFormalSubjectLines()" styleClass="p-button-success" label="Generate"></p-button>
 
   <div *ngIf="errorMessage" class="error">
     {{ errorMessage }}
