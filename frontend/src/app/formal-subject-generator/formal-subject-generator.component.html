@@ -1,7 +1,7 @@
 <div>
   <h2>Generate Email Subject Lines</h2>
   <textarea [(ngModel)]="emailContent" placeholder="Enter email content"></textarea>
-  <button (click)="generateSubjectLines()">Generate</button>
+  <button (click)="generateFormalSubjectLines()">Generate</button>
 
   <div *ngIf="errorMessage" class="error">
     {{ errorMessage }}

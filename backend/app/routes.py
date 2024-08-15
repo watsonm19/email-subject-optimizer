@@ -14,8 +14,8 @@ client = openai.OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY"),
 )
 
-@main.route('/api/generate-subject-lines', methods=['POST'])
-def generate_subject_lines():
+@main.route('/api/generate-formal-subject-lines', methods=['POST'])
+def generate_formal_subject_lines():
     data = request.json
     email_content = data.get('emailContent')
     

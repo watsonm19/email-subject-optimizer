@@ -5,16 +5,16 @@ import { provideHttpClient } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { SubjectGeneratorComponent } from './subject-generator/subject-generator.component';
+import { FormalSubjectGeneratorComponent } from './formal-subject-generator/formal-subject-generator.component';
 
 const routes: Routes = [
-    { path: '', component: SubjectGeneratorComponent }
+    { path: '', component: FormalSubjectGeneratorComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    SubjectGeneratorComponent
+    FormalSubjectGeneratorComponent
   ],
   imports: [
     BrowserModule,
