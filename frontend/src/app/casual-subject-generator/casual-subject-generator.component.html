@@ -1,25 +1,39 @@
-<div>
-  <h2>Generate Casual Email Subject Lines</h2>
-  <p-floatLabel>
-    <textarea 
-      [(ngModel)]="emailContent"
-      id="float-input" 
-      rows="30" cols="75" 
-      pInputTextarea>
-    </textarea>
-    <label for="float-input">Enter email content</label>
-  </p-floatLabel>
-  <p-button (click)="generateCasualSubjectLines()" styleClass="p-button-success" label="Generate" />
-  
-  <div *ngIf="errorMessage" class="error">
-    {{ errorMessage }}
+<div class="mode-container">
+  <h2>Casual Mode</h2>
+  <p-button class="switch-button" routerLink="/formal" icon="pi pi-sort-alt" [text]="true" [plain]="true" />
+</div>
+
+<div class="input-output-container">
+  <div class="input-container">
+    <p-floatLabel>
+      <textarea 
+        [(ngModel)]="emailContent"
+        id="float-input" 
+        pInputTextarea>
+      </textarea>
+      <label for="float-input">Enter email content</label>
+    </p-floatLabel>
   </div>
   
-  <div *ngIf="subjectLines.length">
-    <h3>Suggested Subject Lines:</h3>
-    <ul>
-      <li *ngFor="let line of subjectLines">{{ line }}</li>
-    </ul>
+  <div class="output-container">
+    <div style="color: red; margin: 20px" *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+    
+    <div class="result" *ngIf="subjectLines.length">
+      <h3>Suggested Subject Lines:</h3>
+      <ul>
+        <li *ngFor="let line of subjectLines">{{ line }}</li>
+      </ul>
+    </div>
   </div>
 </div>
-  
+
+<div class="button-wrapper">
+  <p-button 
+    (click)="generateCasualSubjectLines()" 
+    styleClass="p-button-success"
+    [raised]="true"
+    label="Generate">
+  </p-button>
+</div>
