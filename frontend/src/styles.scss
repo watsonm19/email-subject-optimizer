@@ -52,3 +52,51 @@ body {
     text-align: center;
     margin-top: 10px;
 }
+
+
+@media (width <= 1250px) {
+    .input-output-container {
+        gap: 75px;
+        margin: 0 75px;
+        
+        .input-container textarea {
+            height: 500px;
+        }
+    
+        .output-container {
+            height: 500px;
+        }
+    }
+}
+
+
+@media (width <= 660px) {
+    .input-output-container {
+        gap: 50px;
+        margin: 0 50px;
+        
+        .input-container textarea {
+            height: 300px;
+        }
+    
+        .output-container {
+            height: 300px;
+        }
+    }
+}
+
+
+@media (width <= 400px) {
+    .input-output-container {
+        gap: 25px;
+        margin: 0 25px;
+        
+        .input-container textarea {
+            height: 275px;
+        }
+    
+        .output-container {
+            height: 275px;
+        }
+    }
+}
