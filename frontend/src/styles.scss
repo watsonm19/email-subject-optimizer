@@ -2,3 +2,14 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
+
+/* Colors */
+$lp-primary: #45C2B2;
+$lp-secondary: #01244C;
+$lp-tertiary: #F4F4F4;
+
+body {
+    margin-top: 15px;
+    background-color: $lp-primary;
+    color: $lp-tertiary;
+}
