@@ -7,5 +7,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'AI Email Subject Optimizer';
+  title = 'Email Subject Optimizer';
 }

@@ -12,8 +12,10 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { CasualSubjectGeneratorComponent } from './casual-subject-generator/casual-subject-generator.component';
 import { FormalSubjectGeneratorComponent } from './formal-subject-generator/formal-subject-generator.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'casual', component: CasualSubjectGeneratorComponent },
   { path: 'formal', component: FormalSubjectGeneratorComponent }
 ];
@@ -22,7 +24,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     CasualSubjectGeneratorComponent,
-    FormalSubjectGeneratorComponent
+    FormalSubjectGeneratorComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
