@@ -24,9 +24,9 @@ def generate_formal_subject_lines():
     
     try:
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4",
             messages=[
-                {"role": "system", "content": "Generate an effective formal email subject line based on the following email content."},
+                {"role": "system", "content": "Generate an effective and brief formal email subject line based on the following email content. There should be zero emojis contained in the generated subject. Do not repeat the same subject line multiple times. Vary the responses."},
                 {"role": "user", "content": email_content}
             ],
             max_tokens=50,
@@ -64,7 +64,7 @@ def generate_casual_subject_lines():
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "Generate an effective casual email subject line based on the following email content."},
+                {"role": "system", "content": "Generate an effective and brief casual email subject line based on the following email content. Do not repeat the same subject line multiple times."},
                 {"role": "user", "content": email_content}
             ],
             max_tokens=50,
