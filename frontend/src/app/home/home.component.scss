@@ -1,21 +1,24 @@
 .image-backdrop {
     background-color: white;
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 175px;
-    height: 175px;
+    width: 230px;
+    height: 230px;
     border-radius: 50%;
+    animation: fadeInAnimation ease 0.75s;
 }
 
 img {
     background-color: white;
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100px;
+    width: 150px;
+    border-radius: 5px;
+    animation: fadeInAnimation ease 3s;
 }
 
 .button-container {
@@ -24,4 +27,13 @@ img {
     align-items: center;
     height: 90vh;
     gap: 50px; /* Space between the buttons */
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
