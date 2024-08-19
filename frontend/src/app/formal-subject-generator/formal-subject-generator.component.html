@@ -1,35 +1,37 @@
-<div class="mode-container">
+<div class="mode-container animate__animated animate__fadeInDown">
   <h2>Formal Mode</h2>
   <p-button class="switch-button" routerLink="/casual" icon="pi pi-sort-alt" [text]="true" severity="contrast" />
 </div>
 
-<div class="input-output-container">
-  <div class="input-container">
-    <p-floatLabel>
-      <textarea 
-        [(ngModel)]="emailContent"
-        id="float-input" 
-        pInputTextarea>
-      </textarea>
-      <label for="float-input">Enter email content</label>
-    </p-floatLabel>
-  </div>
-  
-  <div class="output-container">
-    <div style="color: red; margin: 20px" *ngIf="errorMessage" class="error">
-      {{ errorMessage }}
+<div class="animate__animated animate__fadeInLeft">
+  <div class="input-output-container">
+    <div class="input-container">
+      <p-floatLabel>
+        <textarea 
+          [(ngModel)]="emailContent"
+          id="float-input" 
+          pInputTextarea>
+        </textarea>
+        <label for="float-input">Enter email content</label>
+      </p-floatLabel>
     </div>
     
-    <div class="result" *ngIf="subjectLines.length">
-      <h3>Suggested Subject Lines:</h3>
-      <ul>
-        <li *ngFor="let line of subjectLines"><p>{{ line }}</p></li>
-      </ul>
+    <div class="output-container">
+      <div style="color: red; margin: 20px" *ngIf="errorMessage" class="error">
+        {{ errorMessage }}
+      </div>
+      
+      <div class="result" *ngIf="subjectLines.length">
+        <h3>Suggested Subject Lines:</h3>
+        <ul>
+          <li *ngFor="let line of subjectLines"><p>{{ line }}</p></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="button-wrapper">
+<div class="button-wrapper animate__animated animate__rotateInDownRight">
   <p-button 
     (click)="generateFormalSubjectLines()" 
     styleClass="p-button-success"
