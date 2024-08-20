@@ -9,6 +9,7 @@ $lp-primary: #45C2B2;
 $lp-secondary: #01244C;
 $lp-tertiary: #F4F4F4;
 
+/* Global Styles */
 body {
     margin-top: 15px;
     background-color: $lp-primary;
@@ -55,7 +56,7 @@ body {
     margin-top: 10px;
 }
 
-
+/* Responsive Subject Generator Styles */
 @media (width <= 1250px) {
     .input-output-container {
         gap: 75px;
