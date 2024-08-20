@@ -35,16 +35,7 @@ def generate_formal_subject_lines():
         )
         
         # Clean up the subject lines
-        subject_lines = []
-        for choice in response.choices:
-            line = choice.message.content.strip()
-            # Remove "Subject:" if it's at the start of the string
-            if line.lower().startswith("subject: "):
-                line = line[len("subject: "):].strip()
-            # Remove wrapping quotation marks if present
-            if line.startswith('"') and line.endswith('"'):
-                line = line[1:-1].strip()
-            subject_lines.append(line)
+        subject_lines = clean_up_subjects(response.choices)
         
         return jsonify(subject_lines)
     
@@ -73,18 +64,23 @@ def generate_casual_subject_lines():
         )
         
         # Clean up the subject lines
-        subject_lines = []
-        for choice in response.choices:
-            line = choice.message.content.strip()
-            # Remove "Subject:" if it's at the start of the string
-            if line.lower().startswith("subject: "):
-                line = line[len("subject: "):].strip()
-            # Remove wrapping quotation marks if present
-            if line.startswith('"') and line.endswith('"'):
-                line = line[1:-1].strip()
-            subject_lines.append(line)
+        subject_lines = clean_up_subjects(response.choices)
         
         return jsonify(subject_lines)
     
     except openai.error.OpenAIError as e:
         return jsonify({'error': str(e)}), 500
+
+
+def clean_up_subjects(choices):
+    subject_lines = []
+    for choice in choices:
+        line = choice.message.content.strip()
+        # Remove "Subject:" if it's at the start of the string
+        if line.lower().startswith("subject: "):
+            line = line[len("subject: "):].strip()
+        # Remove wrapping quotation marks if present
+        if line.startswith('"') and line.endswith('"'):
+            line = line[1:-1].strip()
+        subject_lines.append(line)
+    return subject_lines
